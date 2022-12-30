@@ -1,6 +1,7 @@
+import { knexSnakeCaseMappers } from 'objection';
 import { EnvVarName } from '@enums/env';
 import { MODEL_LIST } from '@models/index';
-import { Global, Module } from '@nestjs/common';
+import { Global, Logger, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
   ObjectionModule,
@@ -17,10 +18,11 @@ import {
           config: {
             client: 'pg',
             useNullAsDefault: true,
+            ...knexSnakeCaseMappers(),
             connection: {
               host: configService.get<string>(EnvVarName.DB_HOST),
               port: configService.get<number>(EnvVarName.DB_PORT),
-              userName: configService.get<string>(EnvVarName.DB_USERNAME),
+              user: configService.get<string>(EnvVarName.DB_USERNAME),
               password: configService.get<string>(EnvVarName.DB_PASSWORD),
               database: configService.get<string>(EnvVarName.DB_NAME),
               pool: {

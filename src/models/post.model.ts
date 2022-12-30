@@ -21,11 +21,9 @@ export class Post extends Model {
           type: 'string',
           minLength: 1,
           maxLength: 255,
-          null: false,
         },
         content: {
           type: 'string',
-          null: false,
         },
         createdAt: {
           type: 'string',
