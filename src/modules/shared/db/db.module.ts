@@ -2,12 +2,13 @@ import { knexSnakeCaseMappers } from 'objection';
 import { EnvVarName } from '@enums/env';
 import { BaseModel } from '@models/base.model';
 import { MODEL_LIST } from '@models/index';
-import { Global, Logger, Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
   ObjectionModule,
   ObjectionModuleOptions,
 } from '@willsoto/nestjs-objection';
+import { REPOSITORY_LIST } from './repositories';
 
 @Global()
 @Module({
@@ -39,6 +40,7 @@ import {
     }),
     ObjectionModule.forFeature(MODEL_LIST),
   ],
-  exports: [ObjectionModule],
+  providers: REPOSITORY_LIST,
+  exports: [ObjectionModule, ...REPOSITORY_LIST],
 })
 export class DbModule {}

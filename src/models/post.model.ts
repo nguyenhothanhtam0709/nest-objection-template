@@ -1,7 +1,20 @@
-import { Model } from 'objection';
 import { BaseModel } from './base.model';
 
-export class PostModel extends BaseModel {
+export interface IPost {
+  id: number;
+  title: string;
+  content?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export class PostModel extends BaseModel implements IPost {
+  public id: number;
+  public title: string;
+  public content?: string;
+  public createdAt: string;
+  public updatedAt: string;
+
   static get tableName() {
     return 'posts';
   }
