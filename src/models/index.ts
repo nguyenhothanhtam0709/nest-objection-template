@@ -1,3 +1,3 @@
-import { Post } from './post.model';
+import { PostModel } from './post.model';
 
-export const MODEL_LIST = [Post];
+export const MODEL_LIST = [PostModel];

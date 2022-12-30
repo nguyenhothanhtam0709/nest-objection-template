@@ -1,11 +1,11 @@
-import { Post } from '@models/post.model';
+import { PostModel } from '@models/post.model';
 import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PostService {
   constructor(
-    @Inject(Post)
-    private readonly postModel: typeof Post,
+    @Inject(PostModel)
+    private readonly postModel: typeof PostModel,
   ) {}
 
   async create() {

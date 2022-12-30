@@ -1,11 +1,6 @@
 import { Model } from 'objection';
-import { BaseModel } from './base.model';
 
-export class PostModel extends BaseModel {
-  static get tableName() {
-    return 'posts';
-  }
-
+export class BaseModel extends Model {
   static get idColumn() {
     return 'id';
   }
@@ -17,14 +12,6 @@ export class PostModel extends BaseModel {
       properties: {
         id: {
           type: 'integer',
-        },
-        title: {
-          type: 'string',
-          minLength: 1,
-          maxLength: 255,
-        },
-        content: {
-          type: 'string',
         },
         createdAt: {
           type: 'string',

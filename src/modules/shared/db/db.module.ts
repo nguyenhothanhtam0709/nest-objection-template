@@ -1,5 +1,6 @@
 import { knexSnakeCaseMappers } from 'objection';
 import { EnvVarName } from '@enums/env';
+import { BaseModel } from '@models/base.model';
 import { MODEL_LIST } from '@models/index';
 import { Global, Logger, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -15,6 +16,7 @@ import {
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
         const config: ObjectionModuleOptions = {
+          Model: BaseModel,
           config: {
             client: 'pg',
             useNullAsDefault: true,
