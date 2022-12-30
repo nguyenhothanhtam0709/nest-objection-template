@@ -21,7 +21,12 @@
     "paths": {
       "@constants/*": ["./src/commons/constants/*"],
       "@enums/*": ["./src/commons/enums/*"],
-      "@start/*": ["./src/start/*"]
+      "@start/*": ["./src/start/*"],
+      "@sharedModules/*": ["./src/modules/shared/*"],
+      "@sharedModules": ["./src/modules/shared"],
+      "@apiModules/*": ["./src/modules/api/*"],
+      "@models/*": ["./src/models/*"],
+      "@models": ["./src/models"]
     }
   }
 }
